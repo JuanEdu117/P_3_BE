@@ -9,7 +9,7 @@ namespace WebApi_BE.Controllers
     public class MantenimientoController : Controller
     {
         #region VARIABLE PRIVADA
-        private cls_Mantenimiento_BLL Obj_Mantenimiento_BLL = new cls_Mantenimiento_BLL();
+        //private cls_Mantenimiento_BLL Obj_Mantenimiento_BLL = new cls_Mantenimiento_BLL();
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -20,7 +20,14 @@ namespace WebApi_BE.Controllers
         #endregion
 
         #region MÉTODOS
+
+        #region SQLSERVER
+
+        #endregion
+
+        #region PROYECT#2
         // GET: api/values
+        /*
         [HttpGet]
         [Route(nameof(ListarMantenimiento))] //BORRAR ROUTE DE SER NECESARIO
         public ActionResult<List<cls_Mantenimiento>> ListarMantenimiento() //Get()
@@ -92,6 +99,9 @@ namespace WebApi_BE.Controllers
             Obj_Mantenimiento_BLL.DeleteValue(id);
             return NoContent();
         }
+        */
+        #endregion
+
         #endregion
     }
 }

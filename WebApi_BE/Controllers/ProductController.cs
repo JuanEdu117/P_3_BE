@@ -9,7 +9,7 @@ namespace WebApi_BE.Controllers
     public class ProductController : Controller
     {
         #region VARIABLE PRIVADA
-        private cls_product_BLL Obj_Product_BLL = new cls_product_BLL();
+        //private cls_product_BLL Obj_Product_BLL = new cls_product_BLL();
         #endregion
 
         #region EVENTO DE APERTURA VIEW
@@ -20,6 +20,13 @@ namespace WebApi_BE.Controllers
         #endregion
 
         #region MÉTODOS
+
+        #region SQLSERVER
+
+        #endregion
+
+        #region PROYECT #2
+        /*
         // GET: api/values
         [HttpGet]
         [Route(nameof(ListarProduct))] //BORRAR ROUTE DE SER NECESARIO
@@ -92,6 +99,9 @@ namespace WebApi_BE.Controllers
             Obj_Product_BLL.DeleteValue(id);
             return NoContent();
         }
+        */
+        #endregion
+
         #endregion
     }
 

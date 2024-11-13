@@ -10,7 +10,12 @@ builder.Services.AddControllersWithViews();
 //INYECCION DEPENDENCIA SQLSERVER
 builder.Services.AddTransient(typeof(IInvent_DAL), typeof(cls_Invent_DAL));
 builder.Services.AddTransient(typeof(IInvent_BLL), typeof(cls_Invent_BLL));
-
+builder.Services.AddTransient(typeof(IInvent_DAL), typeof(cls_Invent_DAL));
+builder.Services.AddTransient(typeof(IInvent_BLL), typeof(cls_Invent_BLL));
+builder.Services.AddTransient(typeof(IInvent_DAL), typeof(cls_Invent_DAL));
+builder.Services.AddTransient(typeof(IInvent_BLL), typeof(cls_Invent_BLL));
+builder.Services.AddTransient(typeof(IInvent_DAL), typeof(cls_Invent_DAL));
+builder.Services.AddTransient(typeof(IInvent_BLL), typeof(cls_Invent_BLL));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

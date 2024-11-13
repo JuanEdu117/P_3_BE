@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="cls_Clientes_DAL.cs" />
+    <Compile Remove="cls_Empleados_DAL.cs" />
+    <Compile Remove="cls_Inventario_DAL.cs" />
+    <Compile Remove="cls_Mantenimiento_DAL.cs" />
+    <Compile Remove="cls_product_DAL.cs" />
+    <Compile Remove="cls_Reportes_DAL.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 

@@ -9,7 +9,7 @@ namespace WebApi_BE.Controllers
     public class ClientesController : Controller
     {
         #region VARIABLE PRIVADA
-        private cls_Clientes_BLL Obj_Clientes_BLL = new cls_Clientes_BLL();
+        //private cls_Clientes_BLL Obj_Clientes_BLL = new cls_Clientes_BLL();
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -20,7 +20,14 @@ namespace WebApi_BE.Controllers
         #endregion
 
         #region MÉTODOS
+
+        #region SQLSERVER
+
+        #endregion
+
+        #region PROYECT #2
         // GET: api/values
+        /*
         [HttpGet]
         [Route(nameof(ListarClientes))] //BORRAR ROUTE DE SER NECESARIO
         public ActionResult<List<cls_Clientes>> ListarClientes() //Get()
@@ -91,7 +98,9 @@ namespace WebApi_BE.Controllers
             }
             Obj_Clientes_BLL.DeleteValue(id);
             return NoContent();
-        }
+        } */
+        #endregion
+
         #endregion
     }
 }

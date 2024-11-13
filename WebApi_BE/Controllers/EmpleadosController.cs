@@ -9,7 +9,7 @@ namespace WebApi_BE.Controllers
     public class EmpleadosController : Controller
     {
         #region VARIABLE PRIVADA
-        private cls_Empleados_BLL Obj_Empleado_BLL = new cls_Empleados_BLL();
+        //private cls_Empleados_BLL Obj_Empleado_BLL = new cls_Empleados_BLL();
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -20,7 +20,14 @@ namespace WebApi_BE.Controllers
         #endregion
 
         #region MÉTODOS
+
+        #region SQLSERVER
+
+        #endregion
+
+        #region PROYECT#2
         // GET: api/values
+        /*
         [HttpGet]
         [Route(nameof(ListarEmpleados))] //BORRAR ROUTE DE SER NECESARIO
         public ActionResult<List<cls_Empleados>> ListarEmpleados() //Get()
@@ -91,7 +98,9 @@ namespace WebApi_BE.Controllers
             }
             Obj_Empleado_BLL.DeleteValue(id);
             return NoContent();
-        }
+        }*/
+        #endregion
+
         #endregion
     }
 }

@@ -10,7 +10,7 @@ namespace WebApi_BE.Controllers
     public class InventarioController : Controller
     {
         #region VARIABLE PRIVADA
-        private cls_Inventario_BLL Obj_Inventario_BLL = new cls_Inventario_BLL();
+        //private cls_Inventario_BLL Obj_Inventario_BLL = new cls_Inventario_BLL();
         // creo variable Interface donde el BLL ve al Controller
         private readonly IInvent_BLL _IInvent_BLL;
         #endregion
@@ -58,6 +58,7 @@ namespace WebApi_BE.Controllers
 
         #region PROYECT#2
         // GET: api/values
+        /*
         [HttpGet]
         [Route(nameof(ListarInventario))] //BORRAR ROUTE DE SER NECESARIO
         public ActionResult<List<cls_Inventario>> ListarInventario() //Get()
@@ -129,6 +130,7 @@ namespace WebApi_BE.Controllers
             Obj_Inventario_BLL.DeleteValue(id);
             return NoContent();
         }
+        */
         #endregion
 
         #endregion
