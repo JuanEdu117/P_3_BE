@@ -39,16 +39,16 @@ namespace WebApi_BE.Controllers
         }
 
         [HttpPost]
-        [Route(nameof(AlmacenaInvent))]
-        public bool AlmacenaInvent(cls_Clientes Obj_Entidad)
+        [Route(nameof(AlmacenaCliente))]
+        public bool AlmacenaCliente(cls_Clientes Obj_Entidad)
         {
 
             return _IClient_BLL.AlmacenarCliente(Obj_Entidad);
         }
 
         [HttpDelete]
-        [Route(nameof(EliminaInvent))]
-        public bool EliminaInvent([FromHeader] int _iIdentify)
+        [Route(nameof(EliminaCliente))]
+        public bool EliminaCliente([FromHeader] int _iIdentify)
         {
             return _IClient_BLL.EliminarCliente(new cls_Clientes { Identificacion = _iIdentify });
         }
