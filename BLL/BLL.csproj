@@ -11,4 +11,9 @@
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfase\" />
+    <Folder Include="SQLServer\" />
+  </ItemGroup>
+
 </Project>
