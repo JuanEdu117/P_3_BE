@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Interfase;
 using Entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,14 @@ namespace WebApi_BE.Controllers
     {
         #region VARIABLE PRIVADA
         //private cls_Clientes_BLL Obj_Clientes_BLL = new cls_Clientes_BLL();
+        private readonly IClient_BLL _IClient_BLL;
+        #endregion
+
+        #region CONTRUCTOR
+        public ClientesController(IClient_BLL iCliente_BLL) 
+        {
+            _IClient_BLL = iCliente_BLL;
+        }
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -22,7 +31,27 @@ namespace WebApi_BE.Controllers
         #region MÉTODOS
 
         #region SQLSERVER
+        [HttpGet]
+        [Route(nameof(ConsultaCliente))]
+        public List<cls_Clientes> ConsultaCliente()
+        {
+            return _IClient_BLL.ConsultarCliente(new cls_Clientes());
+        }
 
+        [HttpPost]
+        [Route(nameof(AlmacenaInvent))]
+        public bool AlmacenaInvent(cls_Clientes Obj_Entidad)
+        {
+
+            return _IClient_BLL.AlmacenarCliente(Obj_Entidad);
+        }
+
+        [HttpDelete]
+        [Route(nameof(EliminaInvent))]
+        public bool EliminaInvent([FromHeader] int _iIdentify)
+        {
+            return _IClient_BLL.EliminarCliente(new cls_Clientes { Identificacion = _iIdentify });
+        }
         #endregion
 
         #region PROYECT #2
