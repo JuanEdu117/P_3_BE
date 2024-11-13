@@ -13,6 +13,7 @@ namespace BLL.SQLServer
     public class cls_Invent_BLL : IInvent_BLL
     {
         #region VARIABLE PRIVADA
+        // creo variable Interface donde el DAL ve al BLL
         private readonly IInvent_DAL _IInvent_DAL;
         #endregion
 

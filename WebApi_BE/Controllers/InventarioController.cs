@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Interfase;
 using Entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,16 @@ namespace WebApi_BE.Controllers
     {
         #region VARIABLE PRIVADA
         private cls_Inventario_BLL Obj_Inventario_BLL = new cls_Inventario_BLL();
+        // creo variable Interface donde el BLL ve al Controller
+        private readonly IInvent_BLL _IInvent_BLL;
+        #endregion
+
+        // CREO EL CONSTRUCT
+        #region CONSTRUCTOR
+        public InventarioController(IInvent_BLL iInventario_BLL) 
+        {
+            _IInvent_BLL = iInventario_BLL;
+        }
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -20,6 +31,32 @@ namespace WebApi_BE.Controllers
         #endregion
 
         #region MÉTODOS
+
+        #region SQLSERVER
+        [HttpGet]
+        [Route(nameof(ConsultaInvent))]
+        public List<cls_Inventario> ConsultaInvent()
+        {
+            return _IInvent_BLL.ConsultarInventario(new cls_Inventario());
+        }
+
+        [HttpPost]
+        [Route(nameof(AlmacenaInvent))]
+        public bool AlmacenaInvent(cls_Inventario Obj_Entidad)
+        {
+
+            return _IInvent_BLL.AlmacenarInventario(Obj_Entidad);
+        }
+
+        [HttpDelete]
+        [Route(nameof(EliminaInvent))]
+        public bool EliminaInvent([FromHeader] int _iInventId)
+        {
+            return _IInvent_BLL.EliminarInventario(new cls_Inventario { IdInventario = _iInventId });
+        }
+        #endregion
+
+        #region PROYECT#2
         // GET: api/values
         [HttpGet]
         [Route(nameof(ListarInventario))] //BORRAR ROUTE DE SER NECESARIO
@@ -92,6 +129,8 @@ namespace WebApi_BE.Controllers
             Obj_Inventario_BLL.DeleteValue(id);
             return NoContent();
         }
+        #endregion
+
         #endregion
     }
 }

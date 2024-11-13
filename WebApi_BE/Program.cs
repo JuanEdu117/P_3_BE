@@ -1,7 +1,15 @@
+using BLL.Interfase;
+using BLL.SQLServer;
+using DAL.Interfase;
+using DAL.SQLServer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//INYECCION DEPENDENCIA SQLSERVER
+builder.Services.AddTransient(typeof(IInvent_DAL), typeof(cls_Invent_DAL));
+builder.Services.AddTransient(typeof(IInvent_BLL), typeof(cls_Invent_BLL));
 
 var app = builder.Build();
 
