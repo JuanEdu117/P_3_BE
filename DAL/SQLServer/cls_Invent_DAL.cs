@@ -1,4 +1,5 @@
-﻿using Dapper;
+﻿using DAL.Interfase;
+using Dapper;
 using Entidades;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace DAL.SQLServer
 {
-    public class cls_Invent_DAL
+    public class cls_Invent_DAL : IInvent_DAL
     {
         #region VARIABLE PRIVADA
         private readonly IConfiguration _IConfiguracion;
