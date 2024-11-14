@@ -12,10 +12,10 @@ builder.Services.AddTransient(typeof(IInvent_DAL), typeof(cls_Invent_DAL));
 builder.Services.AddTransient(typeof(IInvent_BLL), typeof(cls_Invent_BLL));
 builder.Services.AddTransient(typeof(IClient_DAL), typeof(cls_Client_DAL));
 builder.Services.AddTransient(typeof(IClient_BLL), typeof(cls_Client_BLL));
-builder.Services.AddTransient(typeof(IMaintenance_DAL), typeof(cls_Maintenance_DAL));
+/*builder.Services.AddTransient(typeof(IMaintenance_DAL), typeof(cls_Maintenance_DAL));
 builder.Services.AddTransient(typeof(IMaintenance_BLL), typeof(cls_Maintenance_BLL));
 builder.Services.AddTransient(typeof(IReport_DAL), typeof(cls_Report_DAL));
-builder.Services.AddTransient(typeof(IReport_BLL), typeof(cls_Report_BLL));
+builder.Services.AddTransient(typeof(IReport_BLL), typeof(cls_Report_BLL));*/
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
