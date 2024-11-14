@@ -32,23 +32,23 @@ namespace WebApi_BE.Controllers
 
         #region SQLSERVER
         [HttpGet]
-        [Route(nameof(ConsultaCliente))]
-        public List<cls_Clientes> ConsultaCliente()
+        [Route(nameof(ConsultaClient))]
+        public List<cls_Clientes> ConsultaClient()
         {
             return _IClient_BLL.ConsultarCliente(new cls_Clientes());
         }
 
         [HttpPost]
-        [Route(nameof(AlmacenaCliente))]
-        public bool AlmacenaCliente(cls_Clientes Obj_Entidad)
+        [Route(nameof(AlmacenaClient))]
+        public bool AlmacenaClient(cls_Clientes Obj_Entidad)
         {
 
             return _IClient_BLL.AlmacenarCliente(Obj_Entidad);
         }
 
         [HttpDelete]
-        [Route(nameof(EliminaCliente))]
-        public bool EliminaCliente([FromHeader] int _iIdentify)
+        [Route(nameof(EliminaClient))]
+        public bool EliminaClient([FromHeader] int _iIdentify)
         {
             return _IClient_BLL.EliminarCliente(new cls_Clientes { Identificacion = _iIdentify });
         }
