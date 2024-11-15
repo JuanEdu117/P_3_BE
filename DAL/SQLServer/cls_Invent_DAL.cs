@@ -25,9 +25,7 @@ namespace DAL.SQLServer
         }
         #endregion
 
-        #region METODOS
-
-        #region INVENT
+        #region METODOS    
         public List<cls_Inventario> ConsultarInventario(cls_Inventario Obj_Entidad)
         {
             DynamicParameters parametros = new DynamicParameters();
@@ -63,8 +61,6 @@ namespace DAL.SQLServer
                 return CNXSQL.Execute("dbo.Sp_EliminarInventario", parametros, commandType: CommandType.StoredProcedure) > 0;
             }
         }
-        #endregion
-
-        #endregion
+        #endregion      
     }
 }

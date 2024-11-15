@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Interfase;
 using Entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,7 +11,14 @@ namespace WebApi_BE.Controllers
     {
         #region VARIABLE PRIVADA
         //private cls_Mantenimiento_BLL Obj_Mantenimiento_BLL = new cls_Mantenimiento_BLL();
-        
+        private readonly IMaintenance_BLL _IMaintenance_BLL;
+        #endregion
+
+        #region CONTRUCTOR
+        public MantenimientoController(IMaintenance_BLL iMante_BLL)
+        {
+            _IMaintenance_BLL = iMante_BLL;
+        }
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -23,7 +31,27 @@ namespace WebApi_BE.Controllers
         #region MÉTODOS
 
         #region SQLSERVER
+        [HttpGet]
+        [Route(nameof(ConsultaMaintenance))]
+        public List<cls_Mantenimiento> ConsultaMaintenance()
+        {
+            return _IMaintenance_BLL.ConsultarMante(new cls_Mantenimiento());
+        }
 
+        [HttpPost]
+        [Route(nameof(AlmacenaMaintenance))]
+        public bool AlmacenaMaintenance(cls_Mantenimiento Obj_Entidad)
+        {
+
+            return _IMaintenance_BLL.AlmacenarMante(Obj_Entidad);
+        }
+
+        [HttpDelete]
+        [Route(nameof(EliminaMaintenance))]
+        public bool EliminaMaintenance([FromHeader] int _iIdMante)
+        {
+            return _IMaintenance_BLL.EliminarMante(new cls_Mantenimiento { IdMantenimiento = _iIdMante });
+        }
         #endregion
 
         #region PROYECT#2

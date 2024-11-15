@@ -11,11 +11,9 @@ namespace WebApi_BE.Controllers
     {
         #region VARIABLE PRIVADA
         //private cls_Inventario_BLL Obj_Inventario_BLL = new cls_Inventario_BLL();
-        // creo variable Interface donde el BLL ve al Controller
         private readonly IInvent_BLL _IInvent_BLL;
         #endregion
 
-        // CREO EL CONSTRUCT
         #region CONSTRUCTOR
         public InventarioController(IInvent_BLL iInventario_BLL) 
         {
