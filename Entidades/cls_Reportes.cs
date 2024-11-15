@@ -8,5 +8,7 @@ namespace Entidades
 {
     public class cls_Reportes
     {
+        #region VARIABLES PUBLICAS
+        #endregion
     }
 }
