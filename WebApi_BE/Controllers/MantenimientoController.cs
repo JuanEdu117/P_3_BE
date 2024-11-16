@@ -42,7 +42,6 @@ namespace WebApi_BE.Controllers
         [Route(nameof(AlmacenaMaintenance))]
         public bool AlmacenaMaintenance(cls_Mantenimiento Obj_Entidad)
         {
-
             return _IMaintenance_BLL.AlmacenarMante(Obj_Entidad);
         }
 

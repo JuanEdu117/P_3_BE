@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi_BE.Controllers
 {
+    [Route("api/Reportes")]
+    [ApiController]
     public class ReportesController : Controller
     {
         #region VARIABLE PRIVADA
