@@ -42,7 +42,6 @@ namespace WebApi_BE.Controllers
         [Route(nameof(AlmacenaClient))]
         public bool AlmacenaClient(cls_Clientes Obj_Entidad)
         {
-
             return _IClient_BLL.AlmacenarCliente(Obj_Entidad);
         }
 
