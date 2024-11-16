@@ -42,7 +42,6 @@ namespace WebApi_BE.Controllers
         [Route(nameof(AlmacenaInvent))]
         public bool AlmacenaInvent(cls_Inventario Obj_Entidad)
         {
-
             return _IInvent_BLL.AlmacenarInventario(Obj_Entidad);
         }
 
