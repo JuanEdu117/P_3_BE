@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Interfase;
 using Entidades;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,14 @@ namespace WebApi_BE.Controllers
     {
         #region VARIABLE PRIVADA
         //private cls_Empleados_BLL Obj_Empleado_BLL = new cls_Empleados_BLL();
+        private readonly IEmployee_BLL _IEmployee_BLL;
+        #endregion
+
+        #region CONSTRUCTOR
+        public EmpleadosController(IEmployee_BLL iEmpleados_BLL)
+        {
+            _IEmployee_BLL = iEmpleados_BLL;
+        }
         #endregion
 
         #region EVENTOS APERTURA VIEW
@@ -22,7 +31,26 @@ namespace WebApi_BE.Controllers
         #region MÉTODOS
 
         #region SQLSERVER
+        [HttpGet]
+        [Route(nameof(ConsultaEmployee))]
+        public List<cls_Empleados> ConsultaEmployee()
+        {
+            return _IEmployee_BLL.ConsultarEmpleados(new cls_Empleados());
+        }
 
+        [HttpPost]
+        [Route(nameof(AlmacenaEmployee))]
+        public bool AlmacenaEmployee(cls_Empleados Obj_Entidad)
+        {
+            return _IEmployee_BLL.AlmacenarEmpleados(Obj_Entidad);
+        }
+
+        [HttpDelete]
+        [Route(nameof(EliminaEmployee))]
+        public bool EliminaEmployee([FromHeader] int _iCedula)
+        {
+            return _IEmployee_BLL.EliminarEmpleados(new cls_Empleados { iCedula = _iCedula });
+        }
         #endregion
 
         #region PROYECT#2
