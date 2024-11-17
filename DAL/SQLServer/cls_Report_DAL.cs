@@ -41,10 +41,10 @@ namespace DAL.SQLServer
             parametros.Add("@report_id", Obj_Entidad.Id_Reporte, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@client_id", Obj_Entidad.Id_Cliente, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@mante_id", Obj_Entidad.Id_Mantenimiento, DbType.Int32, ParameterDirection.Input);
-            parametros.Add("@nomb_client", Obj_Entidad.NombreCliente, DbType.String, ParameterDirection.Input, 50);
-            parametros.Add("@date_ultimo", Obj_Entidad.FechaUltimoServicio, DbType.DateTime, ParameterDirection.Input);
-            parametros.Add("@date_contact", Obj_Entidad.FechaProximoContacto, DbType.DateTime, ParameterDirection.Input);
-            parametros.Add("@date_report", Obj_Entidad.FechaReporte, DbType.DateTime, ParameterDirection.Input);
+            parametros.Add("@nomb_client", Obj_Entidad.Nombre_Cliente, DbType.String, ParameterDirection.Input, 50);
+            parametros.Add("@date_ultimo", Obj_Entidad.Fecha_Ultimo_Servicio, DbType.DateTime, ParameterDirection.Input);
+            parametros.Add("@date_contact", Obj_Entidad.Proxima_Fecha_Contacto, DbType.DateTime, ParameterDirection.Input);
+            parametros.Add("@date_report", Obj_Entidad.Fecha_Reporte, DbType.DateTime, ParameterDirection.Input);
             parametros.Add("@motive", Obj_Entidad.Motivo, DbType.String, ParameterDirection.Input, 50);
               
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
