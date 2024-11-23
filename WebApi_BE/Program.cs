@@ -16,6 +16,8 @@ builder.Services.AddTransient(typeof(IMaintenance_DAL), typeof(cls_Maintenance_D
 builder.Services.AddTransient(typeof(IMaintenance_BLL), typeof(cls_Maintenance_BLL));
 builder.Services.AddTransient(typeof(IReport_DAL), typeof(cls_Report_DAL));
 builder.Services.AddTransient(typeof(IReport_BLL), typeof(cls_Report_BLL));
+builder.Services.AddTransient(typeof(IEmployee_DAL), typeof(cls_Employee_DAL));
+builder.Services.AddTransient(typeof(IEmployee_BLL), typeof(cls_Employee_BLL));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
