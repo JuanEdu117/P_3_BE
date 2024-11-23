@@ -48,9 +48,16 @@ namespace DAL.SQLServer
             parametros.Add("@mante_invi", Obj_Entidad.MantenimientoInvierno, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@mante_vera", Obj_Entidad.MantenimientoVerano, DbType.Int32, ParameterDirection.Input);
 
-            using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+            try
             {
-                return CNXSQL.Execute("dbo.Sp_AlmacenarClientes", parametros, commandType: CommandType.StoredProcedure) > 0;
+                using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+                {
+                    return CNXSQL.Execute("dbo.Sp_AlmacenarClientes", parametros, commandType: CommandType.StoredProcedure) > 0;
+                }
+            }
+            catch (Exception ex)
+            {                            
+                return false; 
             }
         }
         public bool EliminarCliente(cls_Clientes Obj_Entidad)
@@ -58,10 +65,17 @@ namespace DAL.SQLServer
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add("@client_id", Obj_Entidad.Identificacion, DbType.Int32, ParameterDirection.Input);
 
-            using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+            try
             {
-                return CNXSQL.Execute("dbo.Sp_EliminarClientes", parametros, commandType: CommandType.StoredProcedure) > 0;
+                using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+                {
+                    return CNXSQL.Execute("dbo.Sp_EliminarClientes", parametros, commandType: CommandType.StoredProcedure) > 0;
+                }
             }
+            catch (Exception ex)
+            {
+                return false;
+            }     
         }
         #endregion
     }

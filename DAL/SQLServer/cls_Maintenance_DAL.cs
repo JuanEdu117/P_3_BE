@@ -54,19 +54,33 @@ namespace DAL.SQLServer
             parametros.Add("@costAplicProduct", Obj_Entidad.CostoAplicacionProducto, DbType.Decimal, ParameterDirection.Input);
             parametros.Add("@estadoMante", Obj_Entidad.EstadoMantenimiento, DbType.String, ParameterDirection.Input, 50);
 
-            using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+            try
             {
-                return CNXSQL.Execute("dbo.Sp_AlmacenarMante", parametros, commandType: CommandType.StoredProcedure) > 0;
+                using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+                {
+                    return CNXSQL.Execute("dbo.Sp_AlmacenarMante", parametros, commandType: CommandType.StoredProcedure) > 0;
+                }
             }
+            catch (Exception ex)
+            {
+                return false;
+            }         
         }
         public bool EliminarMante(cls_Mantenimiento Obj_Entidad)
         {
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add("@mante_id", Obj_Entidad.IdMantenimiento, DbType.Int32, ParameterDirection.Input);
 
-            using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+            try
             {
-                return CNXSQL.Execute("dbo.Sp_EliminarMante", parametros, commandType: CommandType.StoredProcedure) > 0;
+                using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
+                {
+                    return CNXSQL.Execute("dbo.Sp_EliminarMante", parametros, commandType: CommandType.StoredProcedure) > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
         #endregion
