@@ -22,15 +22,15 @@ namespace BLL.SQLServer
         }
         #endregion
         public List<cls_Mantenimiento> ConsultarMante(cls_Mantenimiento Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para obtener la información
             return _IMaintenance_DAL.ConsultarMante(Obj_Entidad);
         }
         public bool AlmacenarMante(cls_Mantenimiento Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para almacenar la información
             return _IMaintenance_DAL.AlmacenarMante(Obj_Entidad);
         }
         public bool EliminarMante(cls_Mantenimiento Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para eliminar la información
             return _IMaintenance_DAL.EliminarMante(Obj_Entidad);
         }
     }

@@ -22,15 +22,15 @@ namespace BLL.SQLServer
         }
         #endregion
         public List<cls_Reportes> ConsultarReportes(cls_Reportes Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para obtener la información
             return _IReport_DAL.ConsultarReportes(Obj_Entidad);
         }
         public bool AlmacenarReportes(cls_Reportes Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para almacenar la información
             return _IReport_DAL.AlmacenarReportes(Obj_Entidad);
         }
         public bool EliminarReportes(cls_Reportes Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para eliminar la información
             return _IReport_DAL.EliminarReportes(Obj_Entidad);
         }
     }

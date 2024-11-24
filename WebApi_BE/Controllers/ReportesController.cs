@@ -10,7 +10,6 @@ namespace WebApi_BE.Controllers
     public class ReportesController : Controller
     {
         #region VARIABLE PRIVADA
-        //private cls_Mantenimiento_BLL Obj_Mantenimiento_BLL = new cls_Mantenimiento_BLL();
         private readonly IReport_BLL _IReport_BLL;
         #endregion
 
@@ -33,11 +32,13 @@ namespace WebApi_BE.Controllers
         #region SQLSERVER
         [HttpGet]
         [Route(nameof(ConsultaReport))]
-        public List<cls_Reportes> ConsultaReport()
+        public List<cls_Reportes> ConsultaReport() //Llama al método de la capa lógica para obtener la lista 
         {
             return _IReport_BLL.ConsultarReportes(new cls_Reportes());
         }
 
+        //Recibe un objeto que contiene los datos que se quieren almacenar
+        //Llama al método de la capa BLL para realizar la operación 
         [HttpPost]
         [Route(nameof(AlmacenaReport))]
         public bool AlmacenaReport(cls_Reportes Obj_Entidad)
@@ -45,6 +46,8 @@ namespace WebApi_BE.Controllers
             return _IReport_BLL.AlmacenarReportes(Obj_Entidad);
         }
 
+        //Recibe el ID como parámetro 
+        //Crea un objeto con el ID y lo pasa a la capa BLL para ejecutar la eliminación
         [HttpDelete]
         [Route(nameof(EliminaReport))]
         public bool EliminaReport([FromHeader] int _iIdReporte)

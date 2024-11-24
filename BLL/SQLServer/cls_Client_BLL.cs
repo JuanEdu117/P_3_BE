@@ -22,15 +22,15 @@ namespace BLL.SQLServer
         }
         #endregion
         public List<cls_Clientes> ConsultarCliente(cls_Clientes Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para obtener la información
             return _IClient_DAL.ConsultarCliente(Obj_Entidad);
         }
         public bool AlmacenarCliente(cls_Clientes Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para almacenar la información
             return _IClient_DAL.AlmacenarCliente(Obj_Entidad);
         }
         public bool EliminarCliente(cls_Clientes Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para eliminar la información
             return _IClient_DAL.EliminarCliente(Obj_Entidad);
         }
     }

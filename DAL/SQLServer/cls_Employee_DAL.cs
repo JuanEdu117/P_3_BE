@@ -28,36 +28,36 @@ namespace DAL.SQLServer
         #region METODOS    
         public List<cls_Empleados> ConsultarEmpleados(cls_Empleados Obj_Entidad)
         {
-            DynamicParameters parametros = new DynamicParameters();
-            parametros.Add("@FILTRO", Obj_Entidad.iCedula, DbType.Int32, ParameterDirection.Input);
-
+            DynamicParameters parametros = new DynamicParameters(); //Crea un objeto para pasar el procedimiento almacenado          
+            parametros.Add("@FILTRO", Obj_Entidad.iCedula, DbType.Int32, ParameterDirection.Input); //Agrega "@FILTRO" con el valor del ID
+            //Abre una conexión SQL con la cadena de conexión 
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
-            {
+            {   //Ejecuta el procedimiento almacenado con los parámetros
                 return (List<cls_Empleados>)CNXSQL.Query<cls_Empleados>("dbo.Sp_ConsultarEmpleados", parametros, commandType: CommandType.StoredProcedure);
             }
         }
         public bool AlmacenarEmpleados(cls_Empleados Obj_Entidad)
         {
-            DynamicParameters parametros = new DynamicParameters();
+            DynamicParameters parametros = new DynamicParameters(); //Crea un objeto para pasar el procedimiento almacenado
             parametros.Add("@cedula_id", Obj_Entidad.iCedula, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@nomb", Obj_Entidad.sNombreCompleto, DbType.String, ParameterDirection.Input, 50);
             parametros.Add("@birth", Obj_Entidad.dtmFechaNacimiento, DbType.DateTime, ParameterDirection.Input);
             parametros.Add("@manofuerte", Obj_Entidad.sLateralidad, DbType.String, ParameterDirection.Input, 50);
             parametros.Add("@ingreso", Obj_Entidad.dtmFechaIngreso, DbType.DateTime, ParameterDirection.Input);
             parametros.Add("@salario", Obj_Entidad.fSalarioHora, DbType.Decimal, ParameterDirection.Input);
-
+            //Abre una conexión SQL con la cadena de conexión 
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
-            {
+            {   //Ejecuta el procedimiento almacenado con los parámetros
                 return CNXSQL.Execute("dbo.Sp_AlmacenarEmpleados", parametros, commandType: CommandType.StoredProcedure) > 0;
             }
         }
         public bool EliminarEmpleados(cls_Empleados Obj_Entidad)
         {
-            DynamicParameters parametros = new DynamicParameters();
-            parametros.Add("@cedula_id", Obj_Entidad.iCedula, DbType.Int32, ParameterDirection.Input);
-
+            DynamicParameters parametros = new DynamicParameters(); //Crea un objeto para pasar el procedimiento almacenado
+            parametros.Add("@cedula_id", Obj_Entidad.iCedula, DbType.Int32, ParameterDirection.Input); //Agrega el parámetro con el ID que se desea eliminar
+            //Abre una conexión SQL con la cadena de conexión 
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
-            {
+            {   //Ejecuta el procedimiento almacenado con los parámetros
                 return CNXSQL.Execute("dbo.Sp_EliminarEmpleados", parametros, commandType: CommandType.StoredProcedure) > 0;
             }
         }

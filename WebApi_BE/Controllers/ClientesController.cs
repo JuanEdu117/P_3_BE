@@ -9,8 +9,7 @@ namespace WebApi_BE.Controllers
     [ApiController]
     public class ClientesController : Controller
     {
-        #region VARIABLE PRIVADA
-        //private cls_Clientes_BLL Obj_Clientes_BLL = new cls_Clientes_BLL();
+        #region VARIABLE PRIVADA       
         private readonly IClient_BLL _IClient_BLL;
         #endregion
 
@@ -33,11 +32,13 @@ namespace WebApi_BE.Controllers
         #region SQLSERVER
         [HttpGet]
         [Route(nameof(ConsultaClient))]
-        public List<cls_Clientes> ConsultaClient()
+        public List<cls_Clientes> ConsultaClient() //Llama al método de la capa lógica para obtener la lista 
         {
             return _IClient_BLL.ConsultarCliente(new cls_Clientes());
         }
 
+        //Recibe un objeto que contiene los datos que se quieren almacenar
+        //Llama al método de la capa BLL para realizar la operación 
         [HttpPost]
         [Route(nameof(AlmacenaClient))]
         public bool AlmacenaClient(cls_Clientes Obj_Entidad)
@@ -45,6 +46,8 @@ namespace WebApi_BE.Controllers
             return _IClient_BLL.AlmacenarCliente(Obj_Entidad);
         }
 
+        //Recibe el ID como parámetro 
+        //Crea un objeto con el ID y lo pasa a la capa BLL para ejecutar la eliminación
         [HttpDelete]
         [Route(nameof(EliminaClient))]
         public bool EliminaClient([FromHeader] int _iIdentify)

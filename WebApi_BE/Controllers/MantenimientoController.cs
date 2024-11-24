@@ -10,7 +10,6 @@ namespace WebApi_BE.Controllers
     public class MantenimientoController : Controller
     {
         #region VARIABLE PRIVADA
-        //private cls_Mantenimiento_BLL Obj_Mantenimiento_BLL = new cls_Mantenimiento_BLL();
         private readonly IMaintenance_BLL _IMaintenance_BLL;
         #endregion
 
@@ -32,12 +31,14 @@ namespace WebApi_BE.Controllers
 
         #region SQLSERVER
         [HttpGet]
-        [Route(nameof(ConsultaMaintenance))]
-        public List<cls_Mantenimiento> ConsultaMaintenance()
+        [Route(nameof(ConsultaMaintenance))] 
+        public List<cls_Mantenimiento> ConsultaMaintenance() //Llama al método de la capa lógica para obtener la lista 
         {
             return _IMaintenance_BLL.ConsultarMante(new cls_Mantenimiento());
         }
 
+        //Recibe un objeto que contiene los datos que se quieren almacenar
+        //Llama al método de la capa BLL para realizar la operación 
         [HttpPost]
         [Route(nameof(AlmacenaMaintenance))]
         public bool AlmacenaMaintenance(cls_Mantenimiento Obj_Entidad)
@@ -45,6 +46,8 @@ namespace WebApi_BE.Controllers
             return _IMaintenance_BLL.AlmacenarMante(Obj_Entidad);
         }
 
+        //Recibe el ID como parámetro 
+        //Crea un objeto con el ID y lo pasa a la capa BLL para ejecutar la eliminación
         [HttpDelete]
         [Route(nameof(EliminaMaintenance))]
         public bool EliminaMaintenance([FromHeader] int _iIdMante)

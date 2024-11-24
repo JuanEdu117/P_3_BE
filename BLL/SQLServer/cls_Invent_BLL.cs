@@ -25,15 +25,15 @@ namespace BLL.SQLServer
 
         #region METODOS
         public List<cls_Inventario> ConsultarInventario(cls_Inventario Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para obtener la información
             return _IInvent_DAL.ConsultarInventario(Obj_Entidad);
         }
         public bool AlmacenarInventario(cls_Inventario Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para almacenar la información
             return _IInvent_DAL.AlmacenarInventario(Obj_Entidad);
         }
         public bool EliminarInventario(cls_Inventario Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para eliminar la información
             return _IInvent_DAL.EliminarInventario(Obj_Entidad);
         }
         #endregion

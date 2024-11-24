@@ -9,8 +9,8 @@ namespace DAL.Interfase
 {
     public interface IReport_DAL
     {
-        List<cls_Reportes> ConsultarReportes(cls_Reportes Obj_Entidad);
-        bool AlmacenarReportes(cls_Reportes Obj_Entidad);
-        bool EliminarReportes(cls_Reportes Obj_Entidad);
+        List<cls_Reportes> ConsultarReportes(cls_Reportes Obj_Entidad); //Método para consultar
+        bool AlmacenarReportes(cls_Reportes Obj_Entidad); //Método para almacenar en la base de datos
+        bool EliminarReportes(cls_Reportes Obj_Entidad); //Método para eliminar en la base de datos
     }
 }

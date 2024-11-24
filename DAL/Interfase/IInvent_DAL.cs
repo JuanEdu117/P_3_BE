@@ -9,8 +9,8 @@ namespace DAL.Interfase
 {
     public interface IInvent_DAL
     {
-        List<cls_Inventario> ConsultarInventario(cls_Inventario Obj_Entidad);
-        bool AlmacenarInventario(cls_Inventario Obj_Entidad);
-        bool EliminarInventario(cls_Inventario Obj_Entidad);
+        List<cls_Inventario> ConsultarInventario(cls_Inventario Obj_Entidad); //Método para consultar
+        bool AlmacenarInventario(cls_Inventario Obj_Entidad); //Método para almacenar en la base de datos
+        bool EliminarInventario(cls_Inventario Obj_Entidad); //Método para eliminar en la base de datos
     }
 }

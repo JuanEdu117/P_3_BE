@@ -25,15 +25,15 @@ namespace BLL.SQLServer
 
         #region METODOS
         public List<cls_Empleados> ConsultarEmpleados(cls_Empleados Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para obtener la información
             return _IEmployee_DAL.ConsultarEmpleados(Obj_Entidad);
         }
         public bool AlmacenarEmpleados(cls_Empleados Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para almacenar la información
             return _IEmployee_DAL.AlmacenarEmpleados(Obj_Entidad);
         }
         public bool EliminarEmpleados(cls_Empleados Obj_Entidad)
-        {
+        {   //Llama al método de la capa de datos para eliminar la información
             return _IEmployee_DAL.EliminarEmpleados(Obj_Entidad);
         }
         #endregion

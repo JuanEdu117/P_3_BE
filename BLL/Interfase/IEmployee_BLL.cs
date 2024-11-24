@@ -9,8 +9,8 @@ namespace BLL.Interfase
 {
     public interface IEmployee_BLL
     {
-        List<cls_Empleados> ConsultarEmpleados(cls_Empleados Obj_Entidad);
-        bool AlmacenarEmpleados(cls_Empleados Obj_Entidad);
-        bool EliminarEmpleados(cls_Empleados Obj_Entidad);
+        List<cls_Empleados> ConsultarEmpleados(cls_Empleados Obj_Entidad); //Método para consultar en la base de datos
+        bool AlmacenarEmpleados(cls_Empleados Obj_Entidad); //Método para almacenar en la base de datos
+        bool EliminarEmpleados(cls_Empleados Obj_Entidad); //Método para eliminar en la base de datos
     }
 }

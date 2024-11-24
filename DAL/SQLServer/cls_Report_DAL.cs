@@ -27,17 +27,17 @@ namespace DAL.SQLServer
         #region METODOS
         public List<cls_Reportes> ConsultarReportes(cls_Reportes Obj_Entidad)
         {
-            DynamicParameters parametros = new DynamicParameters();
-            parametros.Add("@FILTRO", Obj_Entidad.Id_Reporte, DbType.Int32, ParameterDirection.Input);
-
+            DynamicParameters parametros = new DynamicParameters(); //Crea un objeto para pasar el procedimiento almacenado
+            parametros.Add("@FILTRO", Obj_Entidad.Id_Reporte, DbType.Int32, ParameterDirection.Input); //Agrega "@FILTRO" con el valor del ID
+            //Abre una conexión SQL con la cadena de conexión 
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
-            {
+            {   //Ejecuta el procedimiento almacenado con los parámetros
                 return (List<cls_Reportes>)CNXSQL.Query<cls_Reportes>("dbo.Sp_ConsultarReportes", parametros, commandType: CommandType.StoredProcedure);
             }
         }
         public bool AlmacenarReportes(cls_Reportes Obj_Entidad)
         {
-            DynamicParameters parametros = new DynamicParameters();
+            DynamicParameters parametros = new DynamicParameters(); //Crea un objeto para pasar el procedimiento almacenado
             parametros.Add("@report_id", Obj_Entidad.Id_Reporte, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@client_id", Obj_Entidad.Id_Cliente, DbType.Int32, ParameterDirection.Input);
             parametros.Add("@mante_id", Obj_Entidad.Id_Mantenimiento, DbType.Int32, ParameterDirection.Input);
@@ -46,19 +46,19 @@ namespace DAL.SQLServer
             parametros.Add("@date_contact", Obj_Entidad.Proxima_Fecha_Contacto, DbType.DateTime, ParameterDirection.Input);
             parametros.Add("@date_report", Obj_Entidad.Fecha_Reporte, DbType.DateTime, ParameterDirection.Input);
             parametros.Add("@motive", Obj_Entidad.Motivo, DbType.String, ParameterDirection.Input, 50);
-              
+            //Abre una conexión SQL con la cadena de conexión   
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
-            {
+            {   //Ejecuta el procedimiento almacenado con los parámetros
                 return CNXSQL.Execute("dbo.Sp_AlmacenarReportes", parametros, commandType: CommandType.StoredProcedure) > 0;
             }
         }
         public bool EliminarReportes(cls_Reportes Obj_Entidad)
         {
-            DynamicParameters parametros = new DynamicParameters();
+            DynamicParameters parametros = new DynamicParameters(); //Crea un objeto para pasar el procedimiento almacenado
             parametros.Add("@report_id", Obj_Entidad.Id_Reporte, DbType.Int32, ParameterDirection.Input);
-
+            //Abre una conexión SQL con la cadena de conexión 
             using (var CNXSQL = new SqlConnection(_IConfiguracion.GetConnectionString("ConexionSQLServer")))
-            {
+            {   //Ejecuta el procedimiento almacenado con los parámetros
                 return CNXSQL.Execute("dbo.Sp_EliminarReportes", parametros, commandType: CommandType.StoredProcedure) > 0;
             }
         }
